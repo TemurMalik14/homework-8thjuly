@@ -1,27 +1,34 @@
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter length of the array: ");
-        int n = input.nextInt();
-        int[] arr = new int[n];
-        System.out.println("Enter elements of the array: ");
-        for (int i=0; i<n; i++){
-        System.out.print("Element "+(i+1)+": ");
-        arr[i]= input.nextInt();
-        }
-                System.out.print("Array: ");
-        for (int i=0; i<n; i++){
+public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter 10 elements: ");
+    int n = 10;
+    int[]arr=new int[n];
+    for (int i = 0; i < n; i++) {
+        System.out.print("Elements: " + (i+1)+" ");
+        arr[i] = input.nextInt();
+    }
+    System.out.print("Elements");
+    System.out.println();
+
+    for (int i=0; i<n; i++){
         System.out.print(arr[i]+" ");
+    }
+    for (int i=0; i<n-1; i++){
+        for (int j=0; j<n-1-i; j++){
+            if (arr[j] > arr[j+1]){
+                int time = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1]=time;
+            }
         }
-        int[] backArr = new int[n];
-        for (int i=0; i<n; i++){
-        backArr[i] = arr[n-1-i];
-        }
-        System.out.print("Reverse counted array: ");
-        for (int i=0; i<n; i++){
-        System.out.print(backArr[i]+" ");
-        }
-                }
-                }
+    }
+    System.out.print("Sorted array: ");
+    for (int i=0; i<n; i++){
+        System.out.print(arr[i]+" ");
+    }
+}
+}
